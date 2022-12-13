@@ -1437,6 +1437,7 @@ const ACME = (function (udf) {
       }
     }
     initialized = true;
+    exports.constants = {};
     for (i in move_consts) {
       exports.constants[i] = move_consts[i];
       if (dumpConsts) {
@@ -1445,6 +1446,9 @@ const ACME = (function (udf) {
     }
     for (i in coll_consts) {
       exports.constants[i] = coll_consts[i];
+      if (dumpConsts) {
+        root[i] = root[i] ?? coll_consts[i];
+      }
     }
 
   }
